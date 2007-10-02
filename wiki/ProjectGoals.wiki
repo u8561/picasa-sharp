@@ -1,0 +1,27 @@
+#summary The short term, initial, goals of picasa-sharp
+#labels Phase-Requirements
+
+= Project Goals =
+
+The short term aim is simple: write a windows forms gui app that can upload serveral photos to picasa, and display existing albums.
+
+= Functional requirements = 
+  * display albums from picasaweb
+  * create new album in picasaweb
+  * add photos to a new or existing album 
+  * Have a version that runs on Mono
+  * rename/alter album properties
+  * download entire albums to local drive
+
+= UI Goals =
+  * Simple layout
+  * Small/suited for small displays or mobile devices.
+  * Use windows Forms (Mono supports some of the windows forms classes)
+
+= Notes =
+
+Google-Sharp SVN Repository:
+
+http://svn.gnome.org/svn/f-spot/trunk/google-sharp
+
+This is really a project/library with in a project (F-Spot).
