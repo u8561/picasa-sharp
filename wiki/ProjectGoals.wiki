@@ -1,9 +1,5 @@
-#summary The short term, initial, goals of picasa-sharp
+#summary The short term aim is simple: write a windows forms gui app that can upload serveral photos to picasa, and display existing albums.
 #labels Phase-Requirements
-
-= Project Goals =
-
-The short term aim is simple: write a windows forms gui app that can upload serveral photos to picasa, and display existing albums.
 
 = Functional requirements = 
   * display albums from picasaweb
@@ -25,3 +21,8 @@ Google-Sharp SVN Repository:
 http://svn.gnome.org/svn/f-spot/trunk/google-sharp
 
 This is really a project/library with in a project (F-Spot).
+
+
+Also, I have found there to be a set of classes for Flickr:
+
+http://svn.gnome.org/svn/f-spot/trunk/FlickrNet/
