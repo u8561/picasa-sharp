@@ -2,12 +2,13 @@
 #labels Phase-Requirements
 
 = Functional requirements = 
-  * display albums from picasaweb
-  * create new album in picasaweb
-  * add photos to a new or existing album 
-  * Have a version that runs on Mono
-  * rename/alter album properties
+  * display album titles from picasaweb
   * download entire albums to local drive
+  * create new albums in picasaweb
+  * add photos to a new or existing album
+  * rename/alter album properties
+  * Have a version that runs on Mono
+
 
 = UI Goals =
   * Simple layout
