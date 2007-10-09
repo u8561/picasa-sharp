@@ -19,6 +19,8 @@ namespace picasa_sharp {
         private PicasaAlbumsManager pam;
         private PicasaAlbumCollection myAlbums;
 
+        private Thread display_photos_thread=null;
+
         public MainWindow() {
             InitializeComponent();
         }
@@ -62,6 +64,22 @@ namespace picasa_sharp {
 
         private void albumList_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+            if (display_photos_thread != null) {
+
+                display_photos_thread.Abort();
+            }
+            
+
+            display_photos_thread = new Thread(get_album_thumbs);
+
+
+
+
+
+
+            display_photos_thread.Start(myAlbums[albumList.SelectedIndex]);
+
             populateDetails(myAlbums[albumList.SelectedIndex]);
         }
 
@@ -71,6 +89,30 @@ namespace picasa_sharp {
             this.txtBoxDescription.Text = album.Description;
             this.lblNumPictures.Text = album.PicturesCount.ToString();
             this.lblBytesUsed.Text = album.BytesUsed.ToString();
+        }
+
+        private void get_album_thumbs(Object data) {
+            PicasaAlbum selected_album = (PicasaAlbum)data;
+            PicasaPicture[] album_pics = selected_album.GetPictures().AllValues;
+            string next_page = "";
+
+            next_page += "<html><head><title>";
+            next_page += selected_album.Title;
+            next_page += "</title></head><body>";
+            next_page += selected_album.Title;
+            next_page += "</br>";
+
+
+            foreach (PicasaPicture pic in album_pics) {
+                next_page += "<img src=\"";
+                next_page += pic.ThumbnailURL;
+                next_page += "\"/>";
+            }
+
+
+
+            next_page += "</body></html>";
+            albumPhotoBrowser.DocumentText = next_page;
         }
     }
 }
