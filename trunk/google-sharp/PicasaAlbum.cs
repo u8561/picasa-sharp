@@ -145,7 +145,6 @@ namespace Mono.Google.Picasa {
 
 		public PicasaPictureCollection GetPictures ()
 		{
-
 			string download_link = GDataApi.GetAlbumFeedById (user, id);
 			if (authkey != null && authkey != "")
 				download_link += "&authkey=" + authkey;

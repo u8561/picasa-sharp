@@ -37,6 +37,11 @@ namespace picasa_sharp {
             }
         }
 
+        public GoogleConnection Connection
+        {
+            get { return this.connection; }
+        }
+
 
         public PicasaAlbumsManager(string username, string password) {
             this.username = username;
