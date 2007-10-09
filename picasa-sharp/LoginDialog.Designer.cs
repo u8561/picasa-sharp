@@ -43,17 +43,17 @@ namespace picasa_sharp {
             // 
             // usernameTextBox
             // 
-            this.usernameTextBox.Location = new System.Drawing.Point(16, 33);
+            this.usernameTextBox.Location = new System.Drawing.Point(87, 9);
             this.usernameTextBox.Name = "usernameTextBox";
-            this.usernameTextBox.Size = new System.Drawing.Size(337, 20);
+            this.usernameTextBox.Size = new System.Drawing.Size(145, 20);
             this.usernameTextBox.TabIndex = 1;
             // 
             // passwordTextBox
             // 
-            this.passwordTextBox.Location = new System.Drawing.Point(16, 86);
+            this.passwordTextBox.Location = new System.Drawing.Point(87, 35);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.PasswordChar = '*';
-            this.passwordTextBox.Size = new System.Drawing.Size(337, 20);
+            this.passwordTextBox.Size = new System.Drawing.Size(145, 20);
             this.passwordTextBox.TabIndex = 3;
             this.passwordTextBox.UseSystemPasswordChar = true;
             // 
@@ -61,7 +61,7 @@ namespace picasa_sharp {
             // 
             this.passwordLabel.AutoSize = true;
             this.passwordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordLabel.Location = new System.Drawing.Point(13, 66);
+            this.passwordLabel.Location = new System.Drawing.Point(13, 39);
             this.passwordLabel.Name = "passwordLabel";
             this.passwordLabel.Size = new System.Drawing.Size(68, 16);
             this.passwordLabel.TabIndex = 2;
@@ -69,9 +69,9 @@ namespace picasa_sharp {
             // 
             // OKButton
             // 
-            this.OKButton.Location = new System.Drawing.Point(16, 113);
+            this.OKButton.Location = new System.Drawing.Point(68, 70);
             this.OKButton.Name = "OKButton";
-            this.OKButton.Size = new System.Drawing.Size(158, 27);
+            this.OKButton.Size = new System.Drawing.Size(76, 27);
             this.OKButton.TabIndex = 4;
             this.OKButton.Text = "OK";
             this.OKButton.UseVisualStyleBackColor = true;
@@ -79,9 +79,9 @@ namespace picasa_sharp {
             // 
             // CancelButton
             // 
-            this.CancelButton.Location = new System.Drawing.Point(195, 112);
+            this.CancelButton.Location = new System.Drawing.Point(150, 70);
             this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(158, 28);
+            this.CancelButton.Size = new System.Drawing.Size(82, 28);
             this.CancelButton.TabIndex = 5;
             this.CancelButton.Text = "Cancel";
             this.CancelButton.UseVisualStyleBackColor = true;
@@ -91,7 +91,7 @@ namespace picasa_sharp {
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(365, 152);
+            this.ClientSize = new System.Drawing.Size(259, 119);
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.OKButton);
             this.Controls.Add(this.passwordTextBox);

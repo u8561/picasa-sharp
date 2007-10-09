@@ -17,6 +17,7 @@ namespace picasa_sharp {
     public partial class MainWindow : Form {
 
         private PicasaAlbumsManager pam;
+        private PicasaAlbumCollection myAlbums;
 
         public MainWindow() {
             InitializeComponent();
@@ -44,17 +45,32 @@ namespace picasa_sharp {
 
             if (ld.DialogResult == DialogResult.OK) {
                 pam = new PicasaAlbumsManager(ld.Username, ld.Password);
+
+                //How do we handle failures?
                 pam.login();
 
-
-                PicasaAlbumCollection pac = pam.getAllAlbums();
+                this.lblStatus.Text = "Connected as " + ld.Username;
+                myAlbums = pam.getAllAlbums();
 
                 albumList.DisplayMember = pam.DisplayMember;
-                for (int i = 0; i < pac.Count; i++) {
-                    albumList.Items.Add(pac[i]);
+                for (int i = 0; i < myAlbums.Count; i++)
+                {
+                    albumList.Items.Add(myAlbums[i]);
                 }
             }
+        }
 
+        private void albumList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            populateDetails(myAlbums[albumList.SelectedIndex]);
+        }
+
+        private void populateDetails(PicasaAlbum album)
+        {
+            this.lblName.Text = album.Title;
+            this.txtBoxDescription.Text = album.Description;
+            this.lblNumPictures.Text = album.PicturesCount.ToString();
+            this.lblBytesUsed.Text = album.BytesUsed.ToString();
         }
     }
 }
