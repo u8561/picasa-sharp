@@ -43,6 +43,34 @@ namespace picasa_sharp {
             this.Close();
         }
 
+        private void usernameTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '\r' 
+                && usernameTextBox.Text!=""
+                && passwordTextBox.Text!="")
+            {
+                this.username = usernameTextBox.Text;
+                this.password = passwordTextBox.Text;
+
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+        }
+
+        private void passwordTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '\r'
+                && usernameTextBox.Text != ""
+                && passwordTextBox.Text != "")
+            {
+                this.username = usernameTextBox.Text;
+                this.password = passwordTextBox.Text;
+
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+        }
+
 
 
 

@@ -47,6 +47,7 @@ namespace picasa_sharp {
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.Size = new System.Drawing.Size(145, 20);
             this.usernameTextBox.TabIndex = 1;
+            this.usernameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.usernameTextBox_KeyPress);
             // 
             // passwordTextBox
             // 
@@ -56,6 +57,7 @@ namespace picasa_sharp {
             this.passwordTextBox.Size = new System.Drawing.Size(145, 20);
             this.passwordTextBox.TabIndex = 3;
             this.passwordTextBox.UseSystemPasswordChar = true;
+            this.passwordTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.passwordTextBox_KeyPress);
             // 
             // passwordLabel
             // 

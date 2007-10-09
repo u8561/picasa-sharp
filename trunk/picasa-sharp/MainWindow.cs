@@ -50,6 +50,8 @@ namespace picasa_sharp {
 
                 //How do we handle failures?
                 pam.login();
+                
+                
 
                 this.lblStatus.Text = "Connected as " + ld.Username;
                 myAlbums = pam.getAllAlbums();
