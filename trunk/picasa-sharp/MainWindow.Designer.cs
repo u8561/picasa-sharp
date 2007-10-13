@@ -188,6 +188,7 @@ namespace picasa_sharp {
             this.txtBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtBoxDescription.Size = new System.Drawing.Size(180, 140);
             this.txtBoxDescription.TabIndex = 5;
+            
             // 
             // label4
             // 
