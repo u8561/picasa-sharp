@@ -57,7 +57,7 @@ namespace picasa_sharp {
             this.albumList.FormattingEnabled = true;
             this.albumList.Location = new System.Drawing.Point(13, 29);
             this.albumList.Name = "albumList";
-            this.albumList.Size = new System.Drawing.Size(224, 446);
+            this.albumList.Size = new System.Drawing.Size(253, 446);
             this.albumList.TabIndex = 2;
             this.albumList.SelectedIndexChanged += new System.EventHandler(this.albumList_SelectedIndexChanged);
             // 
@@ -120,6 +120,7 @@ namespace picasa_sharp {
             this.propertiesToolStripMenuItem.Name = "propertiesToolStripMenuItem";
             this.propertiesToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.propertiesToolStripMenuItem.Text = "Upload";
+            this.propertiesToolStripMenuItem.Click += new System.EventHandler(this.propertiesToolStripMenuItem_Click);
             // 
             // propertiesToolStripMenuItem1
             // 
@@ -234,12 +235,13 @@ namespace picasa_sharp {
             // 
             // albumPhotoBrowser
             // 
-            this.albumPhotoBrowser.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.albumPhotoBrowser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.albumPhotoBrowser.Location = new System.Drawing.Point(243, 29);
+            this.albumPhotoBrowser.Location = new System.Drawing.Point(272, 29);
             this.albumPhotoBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.albumPhotoBrowser.Name = "albumPhotoBrowser";
-            this.albumPhotoBrowser.Size = new System.Drawing.Size(511, 446);
+            this.albumPhotoBrowser.Size = new System.Drawing.Size(482, 446);
             this.albumPhotoBrowser.TabIndex = 8;
             // 
             // MainWindow
@@ -255,6 +257,7 @@ namespace picasa_sharp {
             this.MinimumSize = new System.Drawing.Size(992, 548);
             this.Name = "MainWindow";
             this.Text = "Picasa-Sharp";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainWindow_FormClosed);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
