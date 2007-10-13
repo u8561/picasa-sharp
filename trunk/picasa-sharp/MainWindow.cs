@@ -18,7 +18,6 @@ namespace picasa_sharp {
 
         private PicasaAlbumsManager pam;
         private PicasaAlbumCollection myAlbums;
-
         private Thread display_photos_thread=null;
 
         public MainWindow() {
@@ -50,6 +49,8 @@ namespace picasa_sharp {
 
                 //How do we handle failures?
                 pam.login();
+                // We done, yet :-/ ...... Well, I wrote some code for it 
+                // using exception handling, but I thought it was crap, and deleted it.
                 
                 
 
@@ -66,22 +67,11 @@ namespace picasa_sharp {
 
         private void albumList_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             if (display_photos_thread != null) {
-
                 display_photos_thread.Abort();
             }
-            
-
-            display_photos_thread = new Thread(get_album_thumbs);
-
-
-
-
-
-
+            display_photos_thread = new Thread(get_album_thumbs_from_picasa);
             display_photos_thread.Start(myAlbums[albumList.SelectedIndex]);
-
             populateDetails(myAlbums[albumList.SelectedIndex]);
         }
 
@@ -93,28 +83,114 @@ namespace picasa_sharp {
             this.lblBytesUsed.Text = album.BytesUsed.ToString();
         }
 
-        private void get_album_thumbs(Object data) {
+        private void get_album_thumbs_from_picasa(Object data) {
             PicasaAlbum selected_album = (PicasaAlbum)data;
             PicasaPicture[] album_pics = selected_album.GetPictures().AllValues;
             string next_page = "";
-
             next_page += "<html><head><title>";
             next_page += selected_album.Title;
             next_page += "</title></head><body>";
             next_page += selected_album.Title;
             next_page += "</br>";
-
-
             foreach (PicasaPicture pic in album_pics) {
+                next_page += "<img src=\"";
+                next_page += pic.ThumbnailURL;
+                next_page += "\"/>";
+            }
+            next_page += "</body></html>";
+            albumPhotoBrowser.DocumentText = next_page;
+        }
+
+        private void get_album_thumbs_from_local(Object data) {
+            StupidContainer stupid = (StupidContainer)data;
+            PicasaAlbum album_to_upload_to = stupid.album;
+            string[] filenames = stupid.filenames;
+            /*string next_page = "";
+            next_page += "<html><head><title>";
+            next_page += "Photos to Upload";
+            next_page += "</title></head><body>";
+            next_page += "Photos to Upload"; ;
+            next_page += "</br>";*/
+            foreach (string filename in filenames) {
+
+                album_to_upload_to.UploadPicture(filename);
+
+                //next_page += "<img width=\"100px\" src=\"";
+                //next_page += filename;
+                //next_page += "\"/>";
+            }
+            
+            //albumPhotoBrowser.DocumentText = next_page;
+            System.Console.WriteLine("Done uploading");
+
+            string next_page = "";
+            next_page += "<html><head><title>";
+            next_page += "Upload results";
+            next_page += "</title></head><body>";
+            next_page += "Finished Uploading.";
+            next_page += "</br>";
+            next_page += "Album Name: " + album_to_upload_to.Title;
+            next_page += "</br>";
+            next_page += "Photos: ";
+            next_page += "</br>";
+            foreach (PicasaPicture pic in album_to_upload_to.GetPictures().AllValues) {
                 next_page += "<img src=\"";
                 next_page += pic.ThumbnailURL;
                 next_page += "\"/>";
             }
 
 
-
             next_page += "</body></html>";
+
             albumPhotoBrowser.DocumentText = next_page;
+        }
+
+        private void propertiesToolStripMenuItem_Click(object sender, EventArgs e) {
+            OpenFileDialog get_filenames_to_upload = new OpenFileDialog();
+            get_filenames_to_upload.Multiselect = true;
+            if (get_filenames_to_upload.ShowDialog() == DialogResult.OK) {
+
+                string next_page = "";
+                next_page += "<html><head><title>";
+                next_page += "Photo Upload";
+                next_page += "</title></head><body>";
+                next_page += "Uploading " + get_filenames_to_upload.FileNames.Length;
+
+                if(get_filenames_to_upload.FileNames.Length > 1) {
+                    next_page += " photos ";
+                } else if(get_filenames_to_upload.FileNames.Length == 1) {
+                    next_page += " photo ";
+                } else {
+                    throw new Exception("Must select 1 or more photos for upload!");
+                }
+
+                next_page += "to " + myAlbums[albumList.SelectedIndex].Title + " ...";
+
+                next_page += "</br>";
+                next_page += "</body></html>";
+
+                albumPhotoBrowser.DocumentText = next_page;
+
+                StupidContainer stupid = new StupidContainer();
+                stupid.album = myAlbums[albumList.SelectedIndex];
+                stupid.filenames = get_filenames_to_upload.FileNames;
+
+                if (display_photos_thread != null) {
+                    display_photos_thread.Abort();
+                }
+                display_photos_thread = new Thread(get_album_thumbs_from_local);
+                display_photos_thread.Start(stupid);
+                
+            }
+        }
+
+        private void MainWindow_FormClosed(object sender, FormClosedEventArgs e) {
+            System.Console.WriteLine("Close!");
+            if (display_photos_thread != null) {
+                display_photos_thread.Abort();
+            }
+            albumPhotoBrowser.Stop();
+            albumPhotoBrowser.SuspendLayout();
         }
     }
 }
