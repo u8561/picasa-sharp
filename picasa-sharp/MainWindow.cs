@@ -48,20 +48,31 @@ namespace picasa_sharp {
                 pam = new PicasaAlbumsManager(ld.Username, ld.Password);
 
                 //How do we handle failures?
-                pam.login();
+               // pam.login();
                 // We done, yet :-/ ...... Well, I wrote some code for it 
                 // using exception handling, but I thought it was crap, and deleted it.
                 
+                // This is how:
+
+                try {
+                    pam.login();
+
+                    this.lblStatus.Text = "Connected as " + ld.Username;
+                    myAlbums = pam.getAllAlbums();
+
+                    albumList.DisplayMember = pam.DisplayMember;
+                    for (int i = 0; i < myAlbums.Count; i++) {
+                        albumList.Items.Add(myAlbums[i]);
+                    }
+
+                } catch (UnauthorizedAccessException) {
+                    NotifyDialog bad_login = new NotifyDialog();
+                    bad_login.NotificationMessage = "Wrong password. Try again.";
+                    bad_login.ShowDialog();
+                }
                 
 
-                this.lblStatus.Text = "Connected as " + ld.Username;
-                myAlbums = pam.getAllAlbums();
 
-                albumList.DisplayMember = pam.DisplayMember;
-                for (int i = 0; i < myAlbums.Count; i++)
-                {
-                    albumList.Items.Add(myAlbums[i]);
-                }
             }
         }
 
@@ -80,6 +91,7 @@ namespace picasa_sharp {
             this.lblName.Text = album.Title;
             this.txtBoxDescription.Text = album.Description;
             this.lblNumPictures.Text = album.PicturesCount.ToString();
+
             this.lblBytesUsed.Text = album.BytesUsed.ToString();
         }
 
@@ -192,5 +204,6 @@ namespace picasa_sharp {
             albumPhotoBrowser.Stop();
             albumPhotoBrowser.SuspendLayout();
         }
+
     }
 }
