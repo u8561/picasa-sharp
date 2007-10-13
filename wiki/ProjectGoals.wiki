@@ -2,12 +2,11 @@
 #labels Phase-Requirements
 
 = Functional requirements = 
-  * display album titles from picasaweb
+  * display album titles from picasaweb: done
   * download entire albums to local drive
-  * create new albums in picasaweb
-  * add photos to a new or existing album
-  * rename/alter album properties
-  * Have a version that runs on Mono
+  * create new albums in picasaweb: done
+  * add photos to a new or existing album: done
+  * rename/alter album properties: done
 
 
 = UI Goals =
@@ -27,3 +26,7 @@ This is really a project/library with in a project (F-Spot).
 Also, I have found there to be a set of classes for Flickr:
 
 http://svn.gnome.org/svn/f-spot/trunk/FlickrNet/
+
+= Version for Mono? =
+
+Not anytime soon: We started using the IE component to display somethings.
