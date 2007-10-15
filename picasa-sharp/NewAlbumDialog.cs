@@ -67,7 +67,7 @@ namespace picasa_sharp {
             this.album_title = titleTextBox.Text;
             this.album_description = descriptionTextBox.Text;
             this.album_place = placeTextBox.Text;
-           // this.album_date = new DateTimeConverter().ConvertFromString(dateTextBox.Text);
+            this.album_date = dateTimePicker1.Value;
 
             this.DialogResult = DialogResult.OK;
             this.Close();

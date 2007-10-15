@@ -33,9 +33,10 @@ namespace picasa_sharp {
             this.downloadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.propertiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.propertiesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.lblStatus = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.permissionData = new System.Windows.Forms.Label();
+            this.permissionLabel = new System.Windows.Forms.Label();
             this.lblNumPictures = new System.Windows.Forms.Label();
             this.lblBytesUsed = new System.Windows.Forms.Label();
             this.txtBoxDescription = new System.Windows.Forms.TextBox();
@@ -64,8 +65,7 @@ namespace picasa_sharp {
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripDropDownButton1,
-            this.toolStripProgressBar1});
+            this.toolStripDropDownButton1});
             this.statusStrip1.Location = new System.Drawing.Point(0, 490);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(976, 22);
@@ -128,13 +128,6 @@ namespace picasa_sharp {
             this.propertiesToolStripMenuItem1.Size = new System.Drawing.Size(128, 22);
             this.propertiesToolStripMenuItem1.Text = "Properties";
             // 
-            // toolStripProgressBar1
-            // 
-            this.toolStripProgressBar1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripProgressBar1.AutoSize = false;
-            this.toolStripProgressBar1.Name = "toolStripProgressBar1";
-            this.toolStripProgressBar1.Size = new System.Drawing.Size(100, 16);
-            // 
             // lblStatus
             // 
             this.lblStatus.AutoSize = true;
@@ -148,6 +141,8 @@ namespace picasa_sharp {
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.permissionData);
+            this.groupBox1.Controls.Add(this.permissionLabel);
             this.groupBox1.Controls.Add(this.lblNumPictures);
             this.groupBox1.Controls.Add(this.lblBytesUsed);
             this.groupBox1.Controls.Add(this.txtBoxDescription);
@@ -162,6 +157,23 @@ namespace picasa_sharp {
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Details";
+            // 
+            // permissionData
+            // 
+            this.permissionData.AutoSize = true;
+            this.permissionData.Location = new System.Drawing.Point(77, 256);
+            this.permissionData.Name = "permissionData";
+            this.permissionData.Size = new System.Drawing.Size(0, 13);
+            this.permissionData.TabIndex = 13;
+            // 
+            // permissionLabel
+            // 
+            this.permissionLabel.AutoSize = true;
+            this.permissionLabel.Location = new System.Drawing.Point(11, 256);
+            this.permissionLabel.Name = "permissionLabel";
+            this.permissionLabel.Size = new System.Drawing.Size(60, 13);
+            this.permissionLabel.TabIndex = 10;
+            this.permissionLabel.Text = "Permission:";
             // 
             // lblNumPictures
             // 
@@ -188,7 +200,6 @@ namespace picasa_sharp {
             this.txtBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtBoxDescription.Size = new System.Drawing.Size(180, 140);
             this.txtBoxDescription.TabIndex = 5;
-            
             // 
             // label4
             // 
@@ -278,7 +289,6 @@ namespace picasa_sharp {
         private System.Windows.Forms.ToolStripMenuItem downloadToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem propertiesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem propertiesToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
         private System.Windows.Forms.ToolStripMenuItem loginToolStripMenuItem;
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -291,6 +301,8 @@ namespace picasa_sharp {
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.WebBrowser albumPhotoBrowser;
+        private System.Windows.Forms.Label permissionLabel;
+        private System.Windows.Forms.Label permissionData;
     }
 }
 
