@@ -114,6 +114,8 @@ namespace Mono.Google.Picasa {
 		private void ParseAlbum (XmlNode nodeitem, XmlNamespaceManager nsmgr)
 		{
 
+            System.Console.WriteLine(nodeitem.InnerText);
+
 			title = nodeitem.SelectSingleNode ("atom:title", nsmgr).InnerText;
 			description = nodeitem.SelectSingleNode ("media:group/media:description", nsmgr).InnerText;
 			XmlNode node = nodeitem.SelectSingleNode ("gphoto:id", nsmgr);

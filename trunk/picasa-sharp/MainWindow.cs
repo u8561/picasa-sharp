@@ -25,16 +25,23 @@ namespace picasa_sharp {
         }
 
         private void createNewAlbumToolStripMenuItem_Click(object sender, EventArgs e) {
-            NewAlbumDialog nad = new NewAlbumDialog();
 
-            nad.ShowDialog();
+            if (null == pam || null == pam.LoggedIn) {
+                NotifyDialog please_login = new NotifyDialog();
+                please_login.NotificationMessage = "Please login, then proceed to create new albums.";
+                please_login.ShowDialog();
+            } else {
 
-            if (nad.DialogResult == DialogResult.OK) {
-                PicasaWeb picasa = pam.getWeb();
-                PicasaAlbum unique_id = picasa.CreateAlbum(nad.AlbumTitle);
-                    //, nad.AlbumDescription, nad.AlbumAcessMode, nad.AlbumDate);
-            //   PicasaAlbumCollection coll = picasa.GetAlbums();
-            //    PicasaAlbum album = coll[unique_id];
+                NewAlbumDialog nad = new NewAlbumDialog();
+
+                nad.ShowDialog();
+
+                if (nad.DialogResult == DialogResult.OK) {
+                    PicasaWeb picasa = pam.getWeb();
+                    PicasaAlbum unique_id = picasa.CreateAlbum(nad.AlbumTitle, nad.AlbumDescription, nad.AlbumAcessMode, nad.AlbumDate);
+           
+                }
+
             }
 
         }
@@ -70,9 +77,6 @@ namespace picasa_sharp {
                     bad_login.NotificationMessage = "Wrong password. Try again.";
                     bad_login.ShowDialog();
                 }
-                
-
-
             }
         }
 
@@ -92,6 +96,14 @@ namespace picasa_sharp {
             this.txtBoxDescription.Text = album.Description;
             this.lblNumPictures.Text = album.PicturesCount.ToString();
 
+            if (AlbumAccess.Public == album.Access) {
+                this.permissionData.Text = "Public";
+            } else {
+                this.permissionData.Text = "Private";
+            }
+
+            
+            
             this.lblBytesUsed.Text = album.BytesUsed.ToString();
         }
 
@@ -158,41 +170,49 @@ namespace picasa_sharp {
         }
 
         private void propertiesToolStripMenuItem_Click(object sender, EventArgs e) {
-            OpenFileDialog get_filenames_to_upload = new OpenFileDialog();
-            get_filenames_to_upload.Multiselect = true;
-            if (get_filenames_to_upload.ShowDialog() == DialogResult.OK) {
 
-                string next_page = "";
-                next_page += "<html><head><title>";
-                next_page += "Photo Upload";
-                next_page += "</title></head><body>";
-                next_page += "Uploading " + get_filenames_to_upload.FileNames.Length;
+            if (null == pam || null == pam.LoggedIn) {
+                NotifyDialog please_login = new NotifyDialog();
+                please_login.NotificationMessage = "Please login, then proceed to upload.";
+                please_login.ShowDialog();
+            } else {
 
-                if(get_filenames_to_upload.FileNames.Length > 1) {
-                    next_page += " photos ";
-                } else if(get_filenames_to_upload.FileNames.Length == 1) {
-                    next_page += " photo ";
-                } else {
-                    throw new Exception("Must select 1 or more photos for upload!");
+                OpenFileDialog get_filenames_to_upload = new OpenFileDialog();
+                get_filenames_to_upload.Multiselect = true;
+                if (get_filenames_to_upload.ShowDialog() == DialogResult.OK) {
+
+                    string next_page = "";
+                    next_page += "<html><head><title>";
+                    next_page += "Photo Upload";
+                    next_page += "</title></head><body>";
+                    next_page += "Uploading " + get_filenames_to_upload.FileNames.Length;
+
+                    if (get_filenames_to_upload.FileNames.Length > 1) {
+                        next_page += " photos ";
+                    } else if (get_filenames_to_upload.FileNames.Length == 1) {
+                        next_page += " photo ";
+                    } else {
+                        throw new Exception("Must select 1 or more photos for upload!");
+                    }
+
+                    next_page += "to " + myAlbums[albumList.SelectedIndex].Title + " ...";
+
+                    next_page += "</br>";
+                    next_page += "</body></html>";
+
+                    albumPhotoBrowser.DocumentText = next_page;
+
+                    StupidContainer stupid = new StupidContainer();
+                    stupid.album = myAlbums[albumList.SelectedIndex];
+                    stupid.filenames = get_filenames_to_upload.FileNames;
+
+                    if (display_photos_thread != null) {
+                        display_photos_thread.Abort();
+                    }
+                    display_photos_thread = new Thread(get_album_thumbs_from_local);
+                    display_photos_thread.Start(stupid);
+
                 }
-
-                next_page += "to " + myAlbums[albumList.SelectedIndex].Title + " ...";
-
-                next_page += "</br>";
-                next_page += "</body></html>";
-
-                albumPhotoBrowser.DocumentText = next_page;
-
-                StupidContainer stupid = new StupidContainer();
-                stupid.album = myAlbums[albumList.SelectedIndex];
-                stupid.filenames = get_filenames_to_upload.FileNames;
-
-                if (display_photos_thread != null) {
-                    display_photos_thread.Abort();
-                }
-                display_photos_thread = new Thread(get_album_thumbs_from_local);
-                display_photos_thread.Start(stupid);
-                
             }
         }
 
@@ -204,6 +224,8 @@ namespace picasa_sharp {
             albumPhotoBrowser.Stop();
             albumPhotoBrowser.SuspendLayout();
         }
+
+ 
 
     }
 }

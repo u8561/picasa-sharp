@@ -28,7 +28,6 @@ namespace picasa_sharp {
             this.albumDateLabel = new System.Windows.Forms.Label();
             this.albumDescriptionLabel = new System.Windows.Forms.Label();
             this.titleTextBox = new System.Windows.Forms.TextBox();
-            this.dateTextBox = new System.Windows.Forms.TextBox();
             this.descriptionTextBox = new System.Windows.Forms.TextBox();
             this.placeTextBox = new System.Windows.Forms.TextBox();
             this.publicRadioButton = new System.Windows.Forms.RadioButton();
@@ -39,6 +38,7 @@ namespace picasa_sharp {
             this.label3 = new System.Windows.Forms.Label();
             this.createAlbumButton = new System.Windows.Forms.Button();
             this.cancelAlbumButton = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // newAlbumTitleLabel
@@ -88,13 +88,6 @@ namespace picasa_sharp {
             this.titleTextBox.Name = "titleTextBox";
             this.titleTextBox.Size = new System.Drawing.Size(409, 20);
             this.titleTextBox.TabIndex = 4;
-            // 
-            // dateTextBox
-            // 
-            this.dateTextBox.Location = new System.Drawing.Point(12, 131);
-            this.dateTextBox.Name = "dateTextBox";
-            this.dateTextBox.Size = new System.Drawing.Size(409, 20);
-            this.dateTextBox.TabIndex = 5;
             // 
             // descriptionTextBox
             // 
@@ -198,11 +191,20 @@ namespace picasa_sharp {
             this.cancelAlbumButton.UseVisualStyleBackColor = true;
             this.cancelAlbumButton.Click += new System.EventHandler(this.cancelAlbumButton_Click);
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(16, 132);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 18;
+            
+            // 
             // NewAlbumDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(430, 402);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.cancelAlbumButton);
             this.Controls.Add(this.createAlbumButton);
             this.Controls.Add(this.label3);
@@ -213,7 +215,6 @@ namespace picasa_sharp {
             this.Controls.Add(this.publicRadioButton);
             this.Controls.Add(this.placeTextBox);
             this.Controls.Add(this.descriptionTextBox);
-            this.Controls.Add(this.dateTextBox);
             this.Controls.Add(this.titleTextBox);
             this.Controls.Add(this.albumDescriptionLabel);
             this.Controls.Add(this.albumDateLabel);
@@ -233,7 +234,6 @@ namespace picasa_sharp {
         private System.Windows.Forms.Label albumDateLabel;
         private System.Windows.Forms.Label albumDescriptionLabel;
         private System.Windows.Forms.TextBox titleTextBox;
-        private System.Windows.Forms.TextBox dateTextBox;
         private System.Windows.Forms.TextBox descriptionTextBox;
         private System.Windows.Forms.TextBox placeTextBox;
         private System.Windows.Forms.RadioButton publicRadioButton;
@@ -244,5 +244,6 @@ namespace picasa_sharp {
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button createAlbumButton;
         private System.Windows.Forms.Button cancelAlbumButton;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

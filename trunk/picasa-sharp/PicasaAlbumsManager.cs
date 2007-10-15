@@ -11,7 +11,13 @@ namespace picasa_sharp {
         private GoogleConnection connection;
         private PicasaWeb web;
         private string display_member = "Title";
+        private bool loggedIn = false;
 
+        public bool LoggedIn {
+            get {
+                return this.loggedIn;
+            }
+        }
 
         public string DisplayMember {
             get {
@@ -49,10 +55,15 @@ namespace picasa_sharp {
         }
 
         public void login() {
-            connection = new GoogleConnection(GoogleService.Picasa);
-            //ServicePointManager.CertificatePolicy = new NoCheckCertificatePolicy();
-            connection.Authenticate(this.username, this.password);
-            web = new PicasaWeb(connection);
+            try {
+                connection = new GoogleConnection(GoogleService.Picasa);
+                //ServicePointManager.CertificatePolicy = new NoCheckCertificatePolicy();
+                connection.Authenticate(this.username, this.password);
+                web = new PicasaWeb(connection);
+                this.loggedIn = true;
+            } catch (Exception) {
+                this.loggedIn = false;
+            }
         }
 
         public PicasaAlbumCollection getAllAlbums() {
