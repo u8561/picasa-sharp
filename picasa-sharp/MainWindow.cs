@@ -117,9 +117,13 @@ namespace picasa_sharp {
             next_page += selected_album.Title;
             next_page += "</br>";
             foreach (PicasaPicture pic in album_pics) {
+                next_page += "<a href=\"";
+                next_page += pic.ImageURL;
+                next_page += "\">";
                 next_page += "<img src=\"";
                 next_page += pic.ThumbnailURL;
                 next_page += "\"/>";
+                next_page += "</a>";
             }
             next_page += "</body></html>";
             albumPhotoBrowser.DocumentText = next_page;
