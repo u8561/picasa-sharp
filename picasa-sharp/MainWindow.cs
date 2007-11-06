@@ -26,7 +26,7 @@ namespace picasa_sharp {
 
         private void createNewAlbumToolStripMenuItem_Click(object sender, EventArgs e) {
 
-            if (null == pam || null == pam.LoggedIn) {
+            if (null == pam || false == pam.LoggedIn) {
                 NotifyDialog please_login = new NotifyDialog();
                 please_login.NotificationMessage = "Please login, then proceed to create new albums.";
                 please_login.ShowDialog();
@@ -102,9 +102,7 @@ namespace picasa_sharp {
                 this.permissionData.Text = "Private";
             }
 
-            
-            
-            this.lblBytesUsed.Text = album.BytesUsed.ToString();
+        
         }
 
         private void get_album_thumbs_from_picasa(Object data) {
