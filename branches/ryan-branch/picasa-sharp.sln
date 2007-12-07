@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "picasa-sharp", "picasa-sharp\picasa-sharp.csproj", "{07C1C41E-736C-4AAC-8F05-5F146FA5D559}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "google-sharp", "google-sharp\google-sharp.csproj", "{016DBA0C-DF45-4ACE-A294-2797F72E5B41}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{07C1C41E-736C-4AAC-8F05-5F146FA5D559}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07C1C41E-736C-4AAC-8F05-5F146FA5D559}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07C1C41E-736C-4AAC-8F05-5F146FA5D559}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07C1C41E-736C-4AAC-8F05-5F146FA5D559}.Release|Any CPU.Build.0 = Release|Any CPU
+		{016DBA0C-DF45-4ACE-A294-2797F72E5B41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{016DBA0C-DF45-4ACE-A294-2797F72E5B41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{016DBA0C-DF45-4ACE-A294-2797F72E5B41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{016DBA0C-DF45-4ACE-A294-2797F72E5B41}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
