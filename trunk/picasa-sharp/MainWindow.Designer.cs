@@ -38,8 +38,11 @@ namespace picasa_sharp {
             this.permissionData = new System.Windows.Forms.Label();
             this.permissionLabel = new System.Windows.Forms.Label();
             this.lblNumPictures = new System.Windows.Forms.Label();
+            this.lblBytesUsed = new System.Windows.Forms.Label();
             this.txtBoxDescription = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.albumPhotoBrowser = new System.Windows.Forms.WebBrowser();
@@ -49,15 +52,12 @@ namespace picasa_sharp {
             // 
             // albumList
             // 
-            this.albumList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.albumList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)));
             this.albumList.FormattingEnabled = true;
-            this.albumList.ItemHeight = 16;
-            this.albumList.Location = new System.Drawing.Point(13, 32);
-            this.albumList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.albumList.Location = new System.Drawing.Point(13, 29);
             this.albumList.Name = "albumList";
-            this.albumList.Size = new System.Drawing.Size(204, 484);
+            this.albumList.Size = new System.Drawing.Size(253, 446);
             this.albumList.TabIndex = 2;
             this.albumList.SelectedIndexChanged += new System.EventHandler(this.albumList_SelectedIndexChanged);
             // 
@@ -65,10 +65,9 @@ namespace picasa_sharp {
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripDropDownButton1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 525);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 497);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(873, 24);
+            this.statusStrip1.Size = new System.Drawing.Size(984, 22);
             this.statusStrip1.TabIndex = 4;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -82,20 +81,20 @@ namespace picasa_sharp {
             this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
             this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            this.toolStripDropDownButton1.Size = new System.Drawing.Size(67, 22);
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(55, 20);
             this.toolStripDropDownButton1.Text = "Actions";
             // 
             // loginToolStripMenuItem
             // 
             this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
-            this.loginToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.loginToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.loginToolStripMenuItem.Text = "Login";
             this.loginToolStripMenuItem.Click += new System.EventHandler(this.loginToolStripMenuItem_Click);
             // 
             // createNewAlbumToolStripMenuItem
             // 
             this.createNewAlbumToolStripMenuItem.Name = "createNewAlbumToolStripMenuItem";
-            this.createNewAlbumToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.createNewAlbumToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.createNewAlbumToolStripMenuItem.Text = "Create New Album";
             this.createNewAlbumToolStripMenuItem.Click += new System.EventHandler(this.createNewAlbumToolStripMenuItem_Click);
             // 
@@ -106,35 +105,34 @@ namespace picasa_sharp {
             this.propertiesToolStripMenuItem,
             this.propertiesToolStripMenuItem1});
             this.downloadSelectedAlbumToolStripMenuItem.Name = "downloadSelectedAlbumToolStripMenuItem";
-            this.downloadSelectedAlbumToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.downloadSelectedAlbumToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.downloadSelectedAlbumToolStripMenuItem.Text = "Selected Album";
             // 
             // downloadToolStripMenuItem
             // 
             this.downloadToolStripMenuItem.Name = "downloadToolStripMenuItem";
-            this.downloadToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.downloadToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.downloadToolStripMenuItem.Text = "Download";
             // 
             // propertiesToolStripMenuItem
             // 
             this.propertiesToolStripMenuItem.Name = "propertiesToolStripMenuItem";
-            this.propertiesToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.propertiesToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.propertiesToolStripMenuItem.Text = "Upload";
             this.propertiesToolStripMenuItem.Click += new System.EventHandler(this.propertiesToolStripMenuItem_Click);
             // 
             // propertiesToolStripMenuItem1
             // 
             this.propertiesToolStripMenuItem1.Name = "propertiesToolStripMenuItem1";
-            this.propertiesToolStripMenuItem1.Size = new System.Drawing.Size(140, 22);
+            this.propertiesToolStripMenuItem1.Size = new System.Drawing.Size(134, 22);
             this.propertiesToolStripMenuItem1.Text = "Properties";
             // 
             // lblStatus
             // 
             this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(16, 11);
-            this.lblStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblStatus.Location = new System.Drawing.Point(12, 9);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(105, 17);
+            this.lblStatus.Size = new System.Drawing.Size(82, 13);
             this.lblStatus.TabIndex = 6;
             this.lblStatus.Text = "Not Connected!";
             // 
@@ -142,88 +140,107 @@ namespace picasa_sharp {
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.albumPhotoBrowser);
             this.groupBox1.Controls.Add(this.permissionData);
             this.groupBox1.Controls.Add(this.permissionLabel);
             this.groupBox1.Controls.Add(this.lblNumPictures);
+            this.groupBox1.Controls.Add(this.lblBytesUsed);
             this.groupBox1.Controls.Add(this.txtBoxDescription);
             this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.lblName);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(225, 32);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Location = new System.Drawing.Point(760, 29);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox1.Size = new System.Drawing.Size(635, 484);
+            this.groupBox1.Size = new System.Drawing.Size(200, 446);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Album Info";
+            this.groupBox1.Text = "Details";
             // 
             // permissionData
             // 
             this.permissionData.AutoSize = true;
-            this.permissionData.Location = new System.Drawing.Point(97, 59);
-            this.permissionData.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.permissionData.Location = new System.Drawing.Point(77, 256);
             this.permissionData.Name = "permissionData";
-            this.permissionData.Size = new System.Drawing.Size(0, 17);
+            this.permissionData.Size = new System.Drawing.Size(0, 13);
             this.permissionData.TabIndex = 13;
             // 
             // permissionLabel
             // 
             this.permissionLabel.AutoSize = true;
-            this.permissionLabel.Location = new System.Drawing.Point(8, 59);
-            this.permissionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.permissionLabel.Location = new System.Drawing.Point(11, 256);
             this.permissionLabel.Name = "permissionLabel";
-            this.permissionLabel.Size = new System.Drawing.Size(81, 17);
+            this.permissionLabel.Size = new System.Drawing.Size(60, 13);
             this.permissionLabel.TabIndex = 10;
             this.permissionLabel.Text = "Permission:";
             // 
             // lblNumPictures
             // 
             this.lblNumPictures.AutoSize = true;
-            this.lblNumPictures.Location = new System.Drawing.Point(108, 88);
-            this.lblNumPictures.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNumPictures.Location = new System.Drawing.Point(117, 232);
             this.lblNumPictures.Name = "lblNumPictures";
-            this.lblNumPictures.Size = new System.Drawing.Size(0, 17);
+            this.lblNumPictures.Size = new System.Drawing.Size(0, 13);
             this.lblNumPictures.TabIndex = 7;
+            // 
+            // lblBytesUsed
+            // 
+            this.lblBytesUsed.AutoSize = true;
+            this.lblBytesUsed.Location = new System.Drawing.Point(81, 207);
+            this.lblBytesUsed.Name = "lblBytesUsed";
+            this.lblBytesUsed.Size = new System.Drawing.Size(0, 13);
+            this.lblBytesUsed.TabIndex = 6;
             // 
             // txtBoxDescription
             // 
-            this.txtBoxDescription.Location = new System.Drawing.Point(269, 23);
-            this.txtBoxDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBoxDescription.Location = new System.Drawing.Point(14, 55);
             this.txtBoxDescription.Multiline = true;
             this.txtBoxDescription.Name = "txtBoxDescription";
             this.txtBoxDescription.ReadOnly = true;
             this.txtBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtBoxDescription.Size = new System.Drawing.Size(358, 82);
+            this.txtBoxDescription.Size = new System.Drawing.Size(180, 140);
             this.txtBoxDescription.TabIndex = 5;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(8, 88);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(11, 232);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(92, 17);
+            this.label4.Size = new System.Drawing.Size(100, 13);
             this.label4.TabIndex = 4;
-            this.label4.Text = "Total Photos:";
+            this.label4.Text = "Number of Pictures:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(11, 38);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(60, 13);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Description";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(11, 207);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(64, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Bytes Used:";
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(65, 29);
-            this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblName.Location = new System.Drawing.Point(55, 21);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(0, 17);
+            this.lblName.Size = new System.Drawing.Size(0, 13);
             this.lblName.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 29);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(11, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 17);
+            this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Name:";
             // 
@@ -232,24 +249,23 @@ namespace picasa_sharp {
             this.albumPhotoBrowser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.albumPhotoBrowser.Location = new System.Drawing.Point(11, 113);
-            this.albumPhotoBrowser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.albumPhotoBrowser.MinimumSize = new System.Drawing.Size(27, 25);
+            this.albumPhotoBrowser.Location = new System.Drawing.Point(272, 29);
+            this.albumPhotoBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.albumPhotoBrowser.Name = "albumPhotoBrowser";
-            this.albumPhotoBrowser.Size = new System.Drawing.Size(616, 363);
+            this.albumPhotoBrowser.Size = new System.Drawing.Size(482, 446);
             this.albumPhotoBrowser.TabIndex = 8;
             // 
             // MainWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(873, 549);
+            this.ClientSize = new System.Drawing.Size(984, 519);
+            this.Controls.Add(this.albumPhotoBrowser);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.albumList);
             this.Controls.Add(this.statusStrip1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(992, 548);
             this.Name = "MainWindow";
             this.Text = "Picasa-Sharp";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainWindow_FormClosed);
@@ -276,7 +292,10 @@ namespace picasa_sharp {
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblNumPictures;
+        private System.Windows.Forms.Label lblBytesUsed;
         private System.Windows.Forms.TextBox txtBoxDescription;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblName;

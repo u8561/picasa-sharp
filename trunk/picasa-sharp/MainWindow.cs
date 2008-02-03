@@ -102,26 +102,24 @@ namespace picasa_sharp {
                 this.permissionData.Text = "Private";
             }
 
-        
+            
+            
+            this.lblBytesUsed.Text = album.BytesUsed.ToString();
         }
 
         private void get_album_thumbs_from_picasa(Object data) {
             PicasaAlbum selected_album = (PicasaAlbum)data;
             PicasaPicture[] album_pics = selected_album.GetPictures().AllValues;
             string next_page = "";
-            next_page += "<html><head><title>";
+            next_page += "<html><head><STYLE type=\"text/css\"><!--A { text-decoration:none }--></STYLE><title>";
             next_page += selected_album.Title;
             next_page += "</title></head><body>";
             next_page += selected_album.Title;
             next_page += "</br>";
             foreach (PicasaPicture pic in album_pics) {
-                next_page += "<a href=\"";
-                next_page += pic.ImageURL;
-                next_page += "\">";
-                next_page += "<img src=\"";
+                next_page += "<a href=\"" + pic.ImageURL + "\"> <img src=\"";
                 next_page += pic.ThumbnailURL;
-                next_page += "\"/>";
-                next_page += "</a>";
+                next_page += "\"/></a>&nbsp;&nbsp;&nbsp;";
             }
             next_page += "</body></html>";
             albumPhotoBrowser.DocumentText = next_page;
@@ -173,7 +171,7 @@ namespace picasa_sharp {
 
         private void propertiesToolStripMenuItem_Click(object sender, EventArgs e) {
 
-            if (null == pam || null == pam.LoggedIn) {
+            if (null == pam || false == pam.LoggedIn) {
                 NotifyDialog please_login = new NotifyDialog();
                 please_login.NotificationMessage = "Please login, then proceed to upload.";
                 please_login.ShowDialog();
